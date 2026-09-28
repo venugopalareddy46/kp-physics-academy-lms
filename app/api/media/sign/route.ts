@@ -1,0 +1,2 @@
+import {NextResponse} from "next/server"; import {getSession} from "@/lib/auth"; import {signedGet} from "@/lib/r2";
+export async function POST(req:Request){const s=await getSession();if(!s)return NextResponse.json({error:"Unauthorized"},{status:401});const {key}=await req.json();if(!key||typeof key!=="string")return NextResponse.json({error:"key required"},{status:400});return NextResponse.json({success:true,url:await signedGet(key)})}

@@ -1,0 +1,22 @@
+{
+  "/admin/content/[courseId]/page": "app/admin/content/[courseId]/page.js",
+  "/admin/courses/[id]/edit/page": "app/admin/courses/[id]/edit/page.js",
+  "/admin/courses/new/page": "app/admin/courses/new/page.js",
+  "/admin/courses/page": "app/admin/courses/page.js",
+  "/admin/page": "app/admin/page.js",
+  "/api/assignments/route": "app/api/assignments/route.js",
+  "/api/auth/login/route": "app/api/auth/login/route.js",
+  "/api/auth/register/route": "app/api/auth/register/route.js",
+  "/api/chapters/route": "app/api/chapters/route.js",
+  "/api/courses/[id]/route": "app/api/courses/[id]/route.js",
+  "/api/courses/route": "app/api/courses/route.js",
+  "/api/subjects/[id]/route": "app/api/subjects/[id]/route.js",
+  "/api/subjects/route": "app/api/subjects/route.js",
+  "/api/tests/[id]/route": "app/api/tests/[id]/route.js",
+  "/api/tests/route": "app/api/tests/route.js",
+  "/courses/page": "app/courses/page.js",
+  "/login/page": "app/login/page.js",
+  "/page": "app/page.js",
+  "/register/page": "app/register/page.js",
+  "/student/page": "app/student/page.js"
+}

@@ -1,0 +1,6 @@
+import {NextResponse} from "next/server";
+import {getSession} from "@/lib/auth";
+import {query} from "@/lib/db";
+const admin=async()=>{const s=await getSession();return s?.role==="admin"?s:null};
+export async function PATCH(req:Request,{params}:{params:Promise<{id:string}>}){if(!await admin())return NextResponse.json({error:"Admin access required"},{status:403});const{id}=await params;const b=await req.json();const name=String(b.name||"").trim();if(!name)return NextResponse.json({error:"Name required"},{status:400});const r=await query(`UPDATE subjects SET name=$1,description=$2,order_number=$3 WHERE id=$4 RETURNING *`,[name,String(b.description||"").trim()||null,Number(b.orderNumber||0),id]);if(!r.rowCount)return NextResponse.json({error:"Subject not found"},{status:404});return NextResponse.json({success:true,subject:r.rows[0]})}
+export async function DELETE(_:Request,{params}:{params:Promise<{id:string}>}){if(!await admin())return NextResponse.json({error:"Admin access required"},{status:403});const{id}=await params;const r=await query(`DELETE FROM subjects WHERE id=$1`,[id]);if(!r.rowCount)return NextResponse.json({error:"Subject not found"},{status:404});return NextResponse.json({success:true})}

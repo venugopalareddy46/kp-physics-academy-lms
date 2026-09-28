@@ -1,0 +1,16 @@
+{
+  "openapi":"3.0.3",
+  "info":{"title":"KP Physics Academy API","version":"1.0.0"},
+  "servers":[{"url":"https://api.venugopalareddy.in"}],
+  "paths":{
+    "/api/courses":{"get":{"summary":"List published courses","responses":{"200":{"description":"OK"}}},"post":{"summary":"Create course (admin)","responses":{"201":{"description":"Created"}}}},
+    "/api/courses/{id}":{"get":{"summary":"Get course details","parameters":[{"name":"id","in":"path","required":true,"schema":{"type":"string","format":"uuid"}}],"responses":{"200":{"description":"OK"}}}},
+    "/api/student/courses":{"get":{"summary":"List enrolled courses","responses":{"200":{"description":"OK"}}}},
+    "/api/student/dashboard":{"get":{"summary":"Student dashboard","responses":{"200":{"description":"OK"}}}},
+    "/api/lessons/{id}":{"get":{"summary":"Get protected lesson","responses":{"200":{"description":"OK"}}}},
+    "/api/lessons/{id}/progress":{"post":{"summary":"Save lesson progress","responses":{"200":{"description":"OK"}}}},
+    "/api/media/sign":{"post":{"summary":"Sign an R2 object","responses":{"200":{"description":"OK"}}}},
+    "/api/payments/order":{"post":{"summary":"Create Razorpay order","responses":{"200":{"description":"OK"}}}},
+    "/api/payments/verify":{"post":{"summary":"Verify Razorpay payment","responses":{"200":{"description":"OK"}}}}
+  }
+}
